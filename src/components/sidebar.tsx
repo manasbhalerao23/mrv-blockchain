@@ -5,7 +5,8 @@ import {
   CheckCircle, 
   FileText, 
   Settings,
-  Anchor
+  Anchor,
+  Home
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -14,6 +15,7 @@ interface SidebarProps {
 }
 
 const navigationItems = [
+  { id: 'landing', label: 'Home', icon: Home },
   { id: 'dashboard', label: 'Dashboard', icon: BarChart3 },
   { id: 'projects', label: 'Projects', icon: TreePine },
   { id: 'credits', label: 'Carbon Credits', icon: Anchor },

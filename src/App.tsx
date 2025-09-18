@@ -1,18 +1,24 @@
 import { useState } from 'react';
-import { Header } from './components/header';
 import { Sidebar } from './components/sidebar';
 import { Dashboard } from './components/Dashboard';
 import { Projects } from './components/projects';
 import { CarbonCredits } from './components/cc';
 import { Verification } from './components/verification';
 import { Reports } from './components/reports';
+import HeroSection from './components/HeroSection';
 
 function App() {
-  const [currentView, setCurrentView] = useState('dashboard');
-  const [walletAddress, setWalletAddress] = useState<string | null>(null);
+  const [currentView, setCurrentView] = useState('landing');
 
   const renderCurrentView = () => {
     switch (currentView) {
+      case 'landing':
+        return (
+          <HeroSection
+            onGetStarted={() => setCurrentView('dashboard')}
+            onWatchVideo={() => window.open('https://example.com', '_blank')}
+          />
+        );
       case 'dashboard':
         return <Dashboard />;
       case 'projects':
@@ -37,13 +43,14 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header walletAddress={walletAddress} onWalletConnect={setWalletAddress} />
-      <div className="flex">
-        <Sidebar currentView={currentView} onViewChange={setCurrentView} />
-        <main className="flex-1 min-h-screen">
-          {renderCurrentView()}
-        </main>
-      </div>
+      {currentView === 'landing' ? (
+        <main className="flex-1 min-h-screen">{renderCurrentView()}</main>
+      ) : (
+        <div className="flex">
+          <Sidebar currentView={currentView} onViewChange={setCurrentView} />
+          <main className="flex-1 min-h-screen">{renderCurrentView()}</main>
+        </div>
+      )}
     </div>
   );
 }
