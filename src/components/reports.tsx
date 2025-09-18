@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FileText, Download, Filter, Calendar, TrendingUp, BarChart3 } from 'lucide-react';
+import { FileText, Download, Calendar, TrendingUp, BarChart3 } from 'lucide-react';
 
 export const Reports: React.FC = () => {
   const [selectedPeriod, setSelectedPeriod] = useState('monthly');

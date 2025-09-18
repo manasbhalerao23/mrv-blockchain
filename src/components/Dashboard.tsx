@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp, TreePine, DollarSign, Clock, Anchor, Waves, BarChart3 } from 'lucide-react';
-import { mockDashboardStats, mockProjects, mockCredits } from '../utils/mockData';
+import { mockDashboardStats, mockProjects, mockCredits } from '../utils/mockdata';
+import type { CarbonCredit, CarbonProject } from '../types';
 
 const StatCard: React.FC<{
   title: string;
@@ -88,7 +89,7 @@ export const Dashboard: React.FC = () => {
             </button>
           </div>
           <div className="space-y-4">
-            {recentProjects.map((project) => (
+            {recentProjects.map((project: CarbonProject) => (
               <div key={project.id} className="flex items-center space-x-4 p-3 bg-gray-50 rounded-lg">
                 <div className="w-10 h-10 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center">
                   <Waves className="w-5 h-5 text-white" />
@@ -115,7 +116,7 @@ export const Dashboard: React.FC = () => {
             </button>
           </div>
           <div className="space-y-3">
-            {recentCredits.map((credit) => (
+            {recentCredits.map((credit: CarbonCredit) => (
               <div key={credit.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                 <div className="flex items-center space-x-3">
                   <div className={`w-3 h-3 rounded-full ${

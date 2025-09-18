@@ -37,7 +37,6 @@ export const Verification: React.FC = () => {
   };
 
   const pendingReports = reports.filter(r => r.status === 'pending');
-  const completedReports = reports.filter(r => r.status !== 'pending');
 
   return (
     <div className="p-6 space-y-6">

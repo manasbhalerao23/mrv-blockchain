@@ -17,25 +17,25 @@ export class BlockchainService {
   }
 
   // Mock smart contract interaction
-  async mintCarbonCredits(projectId: string, amount: number): Promise<string> {
+  async mintCarbonCredits(): Promise<string> {
     await new Promise(resolve => setTimeout(resolve, 2000));
     return `0x${Math.random().toString(16).substr(2, 40)}`;
   }
 
   // Mock verification on blockchain
-  async verifyCredits(creditId: string, verificationData: any): Promise<string> {
+  async verifyCredits(): Promise<string> {
     await new Promise(resolve => setTimeout(resolve, 1500));
     return `0x${Math.random().toString(16).substr(2, 40)}`;
   }
 
   // Mock transaction status
-  async getTransactionStatus(txHash: string): Promise<'pending' | 'confirmed' | 'failed'> {
+  async getTransactionStatus(): Promise<'pending' | 'confirmed' | 'failed'> {
     await new Promise(resolve => setTimeout(resolve, 500));
     return 'confirmed';
   }
 
   // Mock balance check
-  async getCreditsBalance(walletAddress: string): Promise<number> {
+  async getCreditsBalance(): Promise<number> {
     await new Promise(resolve => setTimeout(resolve, 300));
     return Math.floor(Math.random() * 10000);
   }
